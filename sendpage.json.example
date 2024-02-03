@@ -1,0 +1,15 @@
+{
+    "user": {
+        "mycall": "m1abc"
+    },
+    "dapnetapi": {
+        "user": "m1abc",
+        "pass": "0123456789ABCDEF0123",
+        "txarea": "all",
+        "api": "https://hampager.de/api/calls"
+    },
+    "aliases": {
+        "friends": "M4TE1,M4TE2,M4TE3,M4TE4",
+        "enemies": "F0E1,F0E2,F0E3,F0E4"
+    }
+}
