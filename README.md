@@ -1,20 +1,19 @@
 # dapnet-sendpage
 
-The following libraries are used in the script, so you may need to install stuff.
+`dapnet-sendpage` is a quick and easy CLI tool for sending calls over the DAPNET pager messaging service.  You need to have a subscriber account at [hampager.de](https://hampager.de), which also means you need to be a licensed amateur radio operator
 
-```python
-import argparse
-import json
-import requests
-import time
-```
+## Installation
 
-I've tried to avoid forcing the end-user to create a virtual environment for this, but I'll put the documentation in if it's needed.
+This project relies on the [uv](https://docs.astral.sh/uv/) project manager, so you will need to install this first.  You'll thank me later.
+
+Once you've installed `uv` and cloned this repo to your local machine using `git clone https://github.com/thelovebug/dapnet-sendpage.git` you'll need to run `uv sync` to make sure that your environment has everything it needs to run this script.
+
+Oh, you'll also need Python installed.
 
 ## Usage
 
 ```shell
-python sendpage.py --calls "C4LLS1GNS" "Message" [--send]
+uv run sendpage.py --calls "C4LLS1GNS" "Message" [--send]
 ```
 
 ## Detail
@@ -70,7 +69,7 @@ If you don't specify this particular switch - which is best placed at the end of
 ## Setting up the config file
 
 If you haven't already got a `sendpage.json` file in place, then make a copy of `sendpage.json.example` and fill in the details with your own.
-
+)
 ```json
 {
     "user": {
@@ -93,7 +92,7 @@ If you haven't already got a `sendpage.json` file in place, then make a copy of 
 
 The concept of Aliases within this script is very easy.  You create a new key in your `sendpage.json` file under the `"aliases":` node, like in the example above where you have two already specified (that won't work as-is, by the way) - `friends` and `enemies`.
 
-The value for each of those keys determines what callsigns you want to be represented by that key.  So, in our example, `friends` is equivalent to the callsigns `"F0E1,F0E2,F0E3,F0E4"`.  Thus, if you specify `friends` as one of the callsigns when you run this script, it will replace `friends` with `F0E1,F0E2,F0E3,F0E4`.
+The value for each of those keys determines what callsigns you want to be represented by that key.  So, in our example, `friends` is equivalent to the callsigns `"M4TE1,M4TE2,M4TE3,M4TE4"`.  Thus, if you specify `friends` as one of the callsigns when you run this script, it will replace `friends` with `M4TE1,M4TE2,M4TE3,M4TE4`.
 
 Thus, if you do this:
 
